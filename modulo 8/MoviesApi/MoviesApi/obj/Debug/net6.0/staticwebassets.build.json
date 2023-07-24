@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "Hash": "FpucQc9WgPGkiqvjMKEJBLoqF3nkUsHx9x4+Y9K3p94=",
+  "Source": "MoviesApi",
+  "BasePath": "_content/MoviesApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "MoviesApi\\wwwroot",
+      "Source": "MoviesApi",
+      "ContentRoot": "C:\\Users\\ahune\\OneDrive\\Documentos\\curso udemy api\\modulo 8\\MoviesApi\\MoviesApi\\wwwroot\\",
+      "BasePath": "_content/MoviesApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\ahune\\OneDrive\\Documentos\\curso udemy api\\modulo 8\\MoviesApi\\MoviesApi\\wwwroot\\actors\\22ccb0e4-e652-40a7-b28c-d6960a9fd88d.jpg",
+      "SourceId": "MoviesApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ahune\\OneDrive\\Documentos\\curso udemy api\\modulo 8\\MoviesApi\\MoviesApi\\wwwroot\\",
+      "BasePath": "_content/MoviesApi",
+      "RelativePath": "actors/22ccb0e4-e652-40a7-b28c-d6960a9fd88d.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\actors\\22ccb0e4-e652-40a7-b28c-d6960a9fd88d.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ahune\\OneDrive\\Documentos\\curso udemy api\\modulo 8\\MoviesApi\\MoviesApi\\wwwroot\\actors\\2325e11f-5832-4700-9499-14e39377f481.jpg",
+      "SourceId": "MoviesApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ahune\\OneDrive\\Documentos\\curso udemy api\\modulo 8\\MoviesApi\\MoviesApi\\wwwroot\\",
+      "BasePath": "_content/MoviesApi",
+      "RelativePath": "actors/2325e11f-5832-4700-9499-14e39377f481.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\actors\\2325e11f-5832-4700-9499-14e39377f481.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ahune\\OneDrive\\Documentos\\curso udemy api\\modulo 8\\MoviesApi\\MoviesApi\\wwwroot\\actors\\27251e16-2626-402d-be7b-5db30d80b906.jpg",
+      "SourceId": "MoviesApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ahune\\OneDrive\\Documentos\\curso udemy api\\modulo 8\\MoviesApi\\MoviesApi\\wwwroot\\",
+      "BasePath": "_content/MoviesApi",
+      "RelativePath": "actors/27251e16-2626-402d-be7b-5db30d80b906.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\actors\\27251e16-2626-402d-be7b-5db30d80b906.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ahune\\OneDrive\\Documentos\\curso udemy api\\modulo 8\\MoviesApi\\MoviesApi\\wwwroot\\actors\\da5bbf7d-81b3-4c1c-abcb-2ad7ac10b548.jpg",
+      "SourceId": "MoviesApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ahune\\OneDrive\\Documentos\\curso udemy api\\modulo 8\\MoviesApi\\MoviesApi\\wwwroot\\",
+      "BasePath": "_content/MoviesApi",
+      "RelativePath": "actors/da5bbf7d-81b3-4c1c-abcb-2ad7ac10b548.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\actors\\da5bbf7d-81b3-4c1c-abcb-2ad7ac10b548.jpg"
+    }
+  ]
+}
