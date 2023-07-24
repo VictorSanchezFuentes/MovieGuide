@@ -37,7 +37,7 @@ class ErrorBoundary extends React.Component<errorBoundaryProps, errorBoundarySta
 
  interface errorBoundaryProps{
     errorUI?: React.ReactNode;
- }//?is a nullable key
+ }//?is a nullable key 
 
  interface errorBoundaryState{
     hasError: boolean;
