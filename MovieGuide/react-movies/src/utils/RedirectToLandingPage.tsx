@@ -1,5 +1,8 @@
-import { redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+
 
 export default function RedirectFomLandingPage(){
-    return redirect( "/");
+    return (
+        <Navigate to="/" replace={true} />
+      )
 }

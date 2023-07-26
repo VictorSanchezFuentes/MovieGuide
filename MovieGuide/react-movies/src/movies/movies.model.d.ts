@@ -11,14 +11,22 @@ export interface movieDTO {
     id: number;
     title: string;
     poster: string; //img of the movie in url
+    inTheaters: boolean;
+    trailer: string;
+    summary?: string;
+    releaseDate: Date;
+    genres: genreDTO[];
+    movieTheaters: movieTheaterDTOP[];
+    actors:actorMovieDTO[];
 }
 
 export interface movieCreationDTO {
   title: string;
   inTheaters: boolean;
   trailer: string;
+  summary?: string;
   releaseDate?: Date;
-  porter?: File;
+  poster?: File;
   posterURL?: string;
   genresIds?: number[];
   movieTheatersIds?: number[];
@@ -36,6 +44,7 @@ export interface moviesPostGetDTO {
   movieTheaters: movieTheaterDTO[];
 
 }
+
 
 
 

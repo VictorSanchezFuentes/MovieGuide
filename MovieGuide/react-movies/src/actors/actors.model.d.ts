@@ -1,3 +1,5 @@
+import { movieTheaterDTO } from "../movietheaters/movieTheater.model";
+
 interface actorCreationDTO {
     name: string;
     dateOfBirth?: Date;
@@ -20,4 +22,13 @@ export interface actorDTO {
     biography: string;
     dateOfBirth: Date;
     picture: string;
+}
+
+export interface moviePutGetDTO {
+    movie: movieDTO;
+    selectedGenres: genreDTO[];
+    nonSelectedGenres: genreDTO[];
+    selectedMovieTheaters: movieTheaterDTO[];
+    nonSelectedMovieTheaters: movieTheaterDTO[];
+    actors: actorMovieDTO[];
 }

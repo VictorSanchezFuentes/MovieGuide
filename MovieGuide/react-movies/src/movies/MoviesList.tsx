@@ -5,23 +5,6 @@ import Loading from "../utils/Loading";
 import GenericList from "../utils/GenericList";
 
 export default function MoviesList(props: moviesListProps){
-    
-    // if(!props.movies){
-    //     // return <>Loading...</>
-    //     return <Loading />
-    // } else if (props.movies.length === 0) {
-    //     return <>There are no movies to display</>
-    // } else {
-    //     return(
-    //         <div className={css.div}>
-    //                 {props.movies.map(movie =>
-    //                     <IndividualMovie {...movie} key={movie.id} />)}
-    //                     {/* //key allows us to differentiate each one and
-    //                     id is a great candidate for that */}
-    
-    //         </div>
-    //     )
-    // }
 
     return(
         <GenericList

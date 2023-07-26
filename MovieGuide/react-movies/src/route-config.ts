@@ -12,6 +12,7 @@ import CreateMovieTheaters from "./movietheaters/CreateMovieTheater";
 import EditMovieTheater from "./movietheaters/EditMovieTheater";
 import IndexMovieTheaters from "./movietheaters/IndexMovieTheaters";
 import RedirectToLandingPage from "./utils/RedirectToLandingPage";
+import MovieDetails from "./genres/MovieDetails";
 
 const routes=[
     {path: "/genres", component: IndexGenres, exact:true},
@@ -30,7 +31,8 @@ const routes=[
 
     {path: "/movies/filter", component: FilterMovies},
     {path: "/movies/create", component: CreateMovie},
-    {path: "/movies/edit/:id(\\d+)", component: EditMovie},
+    {path: "/movies/edit/:id", component: EditMovie},
+    {path: "/movie/:id", component: MovieDetails},
 
 
 

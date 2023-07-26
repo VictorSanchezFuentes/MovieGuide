@@ -13,6 +13,7 @@ import { genreDTO } from "../genres/genres.model";
 import { movieTheaterDTO } from "../movietheaters/movieTheater.model";
 import TypeAheadActors from "../forms/TypeAheadActors";
 import { actorMovieDTO } from "../actors/actors.model";
+import MarkdownField from "../forms/MarkDownField";
 
 export default function MovieForm(props: movieFormProps){
 
@@ -60,6 +61,7 @@ export default function MovieForm(props: movieFormProps){
                     <DateField displayName="Realease Date" field="releaseDate" />
                     <ImageField displayName="Poster" field="poster"
                         imageURL={props.model.posterURL} />
+                    <MarkdownField displayName="Summary" field="summary" />
 
                     <MultipleSelector
                         displayName="Genres"
@@ -68,7 +70,6 @@ export default function MovieForm(props: movieFormProps){
                         onChange={(selected,nonSelected) =>{
                             setSelectedGenres(selected);
                             setNonSelectedGenres(nonSelected);
-
                         }}
                     />
 
@@ -80,7 +81,6 @@ export default function MovieForm(props: movieFormProps){
                         onChange={(selected,nonSelected) =>{
                             setSelectedMovieTheaters(selected);
                             setNonSelectedMovieTheaters(nonSelected);
-
                         }}
                     />
 
@@ -113,7 +113,7 @@ export default function MovieForm(props: movieFormProps){
 
                     <Button disabled={formikProps.isSubmitting}
                     type="submit">Save Changes</Button>
-                    <Link className="btn btn-secondary" to="/genres">Cancel</Link>
+                    <Link className="btn btn-secondary" to="/">Cancel</Link>
                     
                 </Form>
             )}

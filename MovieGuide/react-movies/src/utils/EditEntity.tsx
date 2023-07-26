@@ -82,8 +82,6 @@ EditEntity.defaultProps = {
     //transformation of one type to the other without changing
     //any specific values of any property
     transform: (entity: any) => {
-        
-        console.log("llega");
         return entity;
     }
 }
