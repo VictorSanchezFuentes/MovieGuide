@@ -36,10 +36,6 @@ export default function CreateMovie(){
     async function create(movie: movieCreationDTO){
         try{
             const formData = convertMovieToFormData(movie);
-            //@ts-ignore
-            for (var pair of formData.entries()) {
-                console.log(pair[0]+ ', ' + pair[1]); 
-            }
             await axios
             ({
                 method: "post",
@@ -47,16 +43,13 @@ export default function CreateMovie(){
                 data: formData,
                 headers: {"Content-Type": "multipart/form-data"}
             }).then(response =>{ 
-                console.log(response.data);
-                navigate(`/movies/${response.data}`);
+                navigate(`/movie/${response.data}`);
             })
 
         } catch (error){
-            //@ts-ignore
-            if(error  && error.response){
                 //@ts-ignore
                 setErrors(Array.from(error.response.data));
-            }
+            
         }
     }
     

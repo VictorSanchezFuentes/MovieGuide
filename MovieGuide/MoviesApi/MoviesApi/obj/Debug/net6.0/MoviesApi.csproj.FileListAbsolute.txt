@@ -148,3 +148,8 @@ C:\Users\ahune\OneDrive\Documentos\curso udemy api\modulo 8\MoviesApi\MoviesApi\
 C:\Users\ahune\OneDrive\Documentos\curso udemy api\modulo 8\MoviesApi\MoviesApi\bin\Debug\net6.0\NetTopologySuite.IO.SqlServerBytes.dll
 C:\Users\ahune\OneDrive\Documentos\curso udemy api\modulo 8\MoviesApi\MoviesApi\obj\Debug\net6.0\EFCoreSqlServerNetTopologySuite.cs
 C:\Users\ahune\OneDrive\Documentos\curso udemy api\modulo 8\MoviesApi\MoviesApi\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\ahune\OneDrive\Documentos\curso udemy api\modulo 8\MoviesApi\MoviesApi\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\ahune\OneDrive\Documentos\curso udemy api\modulo 8\MoviesApi\MoviesApi\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\ahune\OneDrive\Documentos\curso udemy api\modulo 8\MoviesApi\MoviesApi\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\ahune\OneDrive\Documentos\curso udemy api\modulo 8\MoviesApi\MoviesApi\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\ahune\OneDrive\Documentos\curso udemy api\modulo 8\MoviesApi\MoviesApi\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll

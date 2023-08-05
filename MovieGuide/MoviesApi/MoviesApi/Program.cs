@@ -11,6 +11,10 @@ using System.IO;
 using MoviesApi.Helpers;
 using NetTopologySuite.Geometries;
 using NetTopologySuite;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.IdentityModel.Tokens.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -52,10 +56,40 @@ builder.Services.AddSingleton<GeometryFactory>(NtsGeometryServices.Instance.Crea
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IFileStorageService, InAppStorageService>();
-
-
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
+
+
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+       .AddEntityFrameworkStores<ApplicationDBContext>()
+       .AddDefaultTokenProviders();
+
+
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+
+builder.Services.
+    AddAuthentication(JwtBearerDefaults.AuthenticationScheme).
+    AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = false,
+            ValidateAudience = false,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["keyjwt]"])),
+            ClockSkew = TimeSpan.Zero
+        };
+    });
+
+
+
+
+
+
+
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
 

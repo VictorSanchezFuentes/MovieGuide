@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using MoviesApi.Entities;
@@ -6,7 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace MoviesApi
 {
-    public class ApplicationDBContext: DbContext
+    public class ApplicationDBContext: IdentityDbContext
     {
         public ApplicationDBContext([NotNullAttribute]DbContextOptions options) : base(options)
         {
@@ -33,6 +34,11 @@ namespace MoviesApi
         public DbSet<MoviesActors> MoviesActors { get; set; }
         public DbSet<MovieTheatersMovies> MovieTheatersMovies { get; set; }
         public DbSet<MoviesGenres> MoviesGenres { get; set; }
+        public DbSet<Rating> Ratings { get; set; }
+
+
+
+
     }
 
     //public class ApplicationDBContextFactory : IDesignTimeDbContextFactory<ApplicationDBContext>

@@ -7,3 +7,9 @@ declare module "yup"{
         firstLetterUppercase(): this;
     }
 }
+
+export interface ObjectError {
+    description: string;
+    code: string;
+
+}

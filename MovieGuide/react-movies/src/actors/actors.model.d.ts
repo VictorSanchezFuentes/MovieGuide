@@ -23,12 +23,3 @@ export interface actorDTO {
     dateOfBirth: Date;
     picture: string;
 }
-
-export interface moviePutGetDTO {
-    movie: movieDTO;
-    selectedGenres: genreDTO[];
-    nonSelectedGenres: genreDTO[];
-    selectedMovieTheaters: movieTheaterDTO[];
-    nonSelectedMovieTheaters: movieTheaterDTO[];
-    actors: actorMovieDTO[];
-}

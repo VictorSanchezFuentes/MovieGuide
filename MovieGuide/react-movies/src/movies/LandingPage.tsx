@@ -4,6 +4,7 @@ import { landingPageDTO } from "./movies.model";
 import { urlMovies } from "../endpoints";
 import axios, {AxiosResponse} from "axios";
 import AlertContext from "../utils/AlertContext";
+import Authorized from "../auth/Authorized";
 
 export default function LandingPage(){
 
@@ -26,12 +27,22 @@ export default function LandingPage(){
         <AlertContext.Provider value={() => {
             loadData();
         }}>
+
+            {/* <Authorized 
+                authorized={<>Your are authorized</>}
+                notAuthorized={<>You are not authorized</>}
+                role="admin"
+            /> */}
+
             <h3>In theaters</h3>
                 <MoviesList movies={movies.inTheaters} />
 
             <h3>Upcoming Releases</h3>
                 <MoviesList movies={movies.upcomingReleases} />
-        
+           
+            <h3>Old Already Released</h3>
+            <MoviesList movies={movies.alreadyReleased} />
+
         </AlertContext.Provider>
     )
 }

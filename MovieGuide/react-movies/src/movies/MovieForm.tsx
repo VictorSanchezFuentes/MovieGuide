@@ -1,26 +1,24 @@
 import { Form, Formik, FormikHelpers } from "formik";
-import { movieCreationDTO } from "./movies.model";
-import * as Yup from "yup"
-import Button from "../utils/Button";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import TextField from "../forms/TextField";
+import * as Yup from "yup";
+import { actorMovieDTO } from "../actors/actors.model";
+import CheckboxField from "../forms/CheckboxField";
 import DateField from "../forms/DateField";
 import ImageField from "../forms/ImageField";
-import CheckboxField from "../forms/CheckboxField";
+import MarkdownField from "../forms/MarkDownField";
 import MultipleSelector, { multipleSelectorModel } from "../forms/MultipleSelector";
-import { ReactElement, useState } from "react";
+import TextField from "../forms/TextField";
+import TypeAheadActors from "../forms/TypeAheadActors";
 import { genreDTO } from "../genres/genres.model";
 import { movieTheaterDTO } from "../movietheaters/movieTheater.model";
-import TypeAheadActors from "../forms/TypeAheadActors";
-import { actorMovieDTO } from "../actors/actors.model";
-import MarkdownField from "../forms/MarkDownField";
+import Button from "../utils/Button";
+import { movieCreationDTO } from "./movies.model";
 
 export default function MovieForm(props: movieFormProps){
 
     const [selectedGenres, setSelectedGenres] = useState(mapToModel(props.selectedGenres));
     const [nonSelectedGenres, setNonSelectedGenres] = useState(mapToModel(props.nonSelectedGenres));
-
-
 
     const [selectedMovieTheaters, setSelectedMovieTheaters] = useState(mapToModel(props.selectedMovieTheaters));
     const [nonSelectedMovieTheaters, setNonSelectedMovieTheaters] = useState(mapToModel(props.nonSelectedMovieTheaters));
@@ -42,8 +40,6 @@ export default function MovieForm(props: movieFormProps){
                 values.genresIds = selectedGenres.map(item => item.key);
                 values.movieTheatersIds = selectedMovieTheaters.map(item => item.key);
                 values.actors = selectedActors;
-
-
 
 
                 //before we call the parent component we want to

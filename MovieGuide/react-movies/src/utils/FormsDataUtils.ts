@@ -41,7 +41,7 @@ export function convertMovieToFormData(movie: movieCreationDTO){
     formData.append("inTheaters",String(movie.inTheaters));
 
     if(movie.releaseDate){
-        formData.append("Realease Date", formatDate(movie.releaseDate));
+        formData.append("releaseDate", formatDate(movie.releaseDate));
     }
 
     if(movie.poster){

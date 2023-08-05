@@ -4,5 +4,6 @@
     {
         public List<MovieDTO> InTheaters { get; set; }
         public List<MovieDTO> UpcomingReleases { get; set; }
+        public List<MovieDTO> alreadyReleased { get; set; }
     }
 }

@@ -13,27 +13,34 @@ import EditMovieTheater from "./movietheaters/EditMovieTheater";
 import IndexMovieTheaters from "./movietheaters/IndexMovieTheaters";
 import RedirectToLandingPage from "./utils/RedirectToLandingPage";
 import MovieDetails from "./genres/MovieDetails";
+import Register from "./auth/Register";
+import Login from "./auth/Login";
+import IndexUsers from "./auth/IndexUsers";
 
 const routes=[
-    {path: "/genres", component: IndexGenres, exact:true},
-    {path: "/genres/create", component: CreateGenre},
-    {path: "/genres/edit/:id", component: EditGenre},
+    {path: "/genres", component: IndexGenres, exact:true, isAdmin: true},
+    {path: "/genres/create", component: CreateGenre, isAdmin: true},
+    {path: "/genres/edit/:id", component: EditGenre, isAdmin: true},
     //(//d+) means that the parater id must
     //be a number
 
-    {path: "/actors", component: IndexActors, exact:true},
-    {path: "/actors/create", component: CreateActor, exact:true},
-    {path: "/actors/edit/:id", component: EditActor,exact:true},
+    {path: "/actors", component: IndexActors, exact:true, isAdmin: true},
+    {path: "/actors/create", component: CreateActor, exact:true, isAdmin: true},
+    {path: "/actors/edit/:id", component: EditActor,exact:true, isAdmin: true},
 
-    {path: "/movietheaters", component: IndexMovieTheaters, exact:true},
-    {path: "/movietheaters/create", component: CreateMovieTheaters},
-    {path: "/movietheaters/edit/:id"/*(\\d+)"*/, component: EditMovieTheater},
+    {path: "/movietheaters", component: IndexMovieTheaters, exact:true, isAdmin: true},
+    {path: "/movietheaters/create", component: CreateMovieTheaters, isAdmin: true},
+    {path: "/movietheaters/edit/:id"/*(\\d+)"*/, component: EditMovieTheater, isAdmin: true},
 
     {path: "/movies/filter", component: FilterMovies},
-    {path: "/movies/create", component: CreateMovie},
-    {path: "/movies/edit/:id", component: EditMovie},
+    {path: "/movies/create", component: CreateMovie, isAdmin: true},
+    {path: "/movies/edit/:id(\\d+)", component: EditMovie, isAdmin: true},
     {path: "/movie/:id", component: MovieDetails},
 
+    {path: "/register", component: Register},
+    {path: "/login", component: Login},
+    
+    {path: "/users", component: IndexUsers},
 
 
     {path: "/", component: LandingPage, exact: true},

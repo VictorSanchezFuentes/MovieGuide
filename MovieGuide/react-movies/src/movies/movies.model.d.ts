@@ -36,13 +36,27 @@ export interface movieCreationDTO {
 export interface landingPageDTO {
     inTheaters?: movieDTO[];
     upcomingReleases?: movieDTO[];
+    alreadyReleased?: movieDTO[];
 }
 
 
 export interface moviesPostGetDTO {
   genres: genreDTO[];
   movieTheaters: movieTheaterDTO[];
+  selectedGenres: genreDTO[];
+  nonSelectedGenres: genreDTO[];
+  selectedMovieTheaters: movieTheaterDTO[];
+  nonSelectedMovieTheaters: movieTheaterDTO[];
 
+}
+
+interface moviePutGetDTO {
+  movie: movieDTO;
+  selectedGenres: genreDTO[];
+  nonSelectedGenres: genreDTO[];
+  selectedMovieTheaters: movieTheaterDTO[];
+  nonSelectedMovieTheaters: movieTheaterDTO[];
+  actors: actorMovieDTO[];
 }
 
 

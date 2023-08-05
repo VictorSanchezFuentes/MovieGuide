@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "cHcZisMdXIiXjRhM3eNwMRmjrhpfgfptsUCbj8Z6JyvcKIIYc0P95Swpx54CbxS8UjPcJxOV7WLz7T/EEJtNJg==",
+  "dgSpecHash": "6VTjC0JAn9o4DZXBUd34JO9tKuwYzAO7clp3oox/XTQ2EZieq8S030W75TiaoVpbvkDd2cYMm8/EMd/YWdPXrQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ahune\\OneDrive\\Documentos\\curso udemy api\\modulo 8\\MoviesApi\\MoviesApi\\MoviesApi.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,9 @@
     "C:\\Users\\ahune\\.nuget\\packages\\configurationbinder\\1.1.0\\configurationbinder.1.1.0.nupkg.sha512",
     "C:\\Users\\ahune\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ahune\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.4\\microsoft.aspnetcore.authentication.jwtbearer.6.0.4.nupkg.sha512",
+    "C:\\Users\\ahune\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.4\\microsoft.aspnetcore.cryptography.internal.6.0.4.nupkg.sha512",
+    "C:\\Users\\ahune\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.4\\microsoft.aspnetcore.cryptography.keyderivation.6.0.4.nupkg.sha512",
+    "C:\\Users\\ahune\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.4\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.4.nupkg.sha512",
     "C:\\Users\\ahune\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\ahune\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\ahune\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
@@ -28,6 +31,8 @@
     "C:\\Users\\ahune\\.nuget\\packages\\microsoft.extensions.configuration.binder\\7.0.4\\microsoft.extensions.configuration.binder.7.0.4.nupkg.sha512",
     "C:\\Users\\ahune\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.0\\microsoft.extensions.dependencyinjection.6.0.0.nupkg.sha512",
     "C:\\Users\\ahune\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\ahune\\.nuget\\packages\\microsoft.extensions.identity.core\\6.0.4\\microsoft.extensions.identity.core.6.0.4.nupkg.sha512",
+    "C:\\Users\\ahune\\.nuget\\packages\\microsoft.extensions.identity.stores\\6.0.4\\microsoft.extensions.identity.stores.6.0.4.nupkg.sha512",
     "C:\\Users\\ahune\\.nuget\\packages\\microsoft.extensions.logging\\6.0.0\\microsoft.extensions.logging.6.0.0.nupkg.sha512",
     "C:\\Users\\ahune\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\ahune\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",

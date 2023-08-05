@@ -1,11 +1,10 @@
 export default function  DisplayErrors(props: displayErrorsProps){
     const style = {color: "red"};
+    // const errores: string[] = props.errors!;
     return(
         <>
-        {/* @ts-ignore */}
         {props.errors ? <ul style={style}>
-             {/* @ts-ignore */}
-            {props.errors.map((error,index) => <li key={index}>{error}</li>)}
+            {props.errors.map((error,index) => <li key={index}> {error} </li>)}
         </ul> : null
         }
         </>

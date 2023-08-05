@@ -1,5 +1,5 @@
 import {useEffect, useState } from "react";
-import { urlMovies } from "../endpoints";
+import { urlMovies, urlRatings } from "../endpoints";
 import { Link, useParams} from "react-router-dom";
 import axios, {AxiosResponse} from "axios";
 import { movieDTO } from "../movies/movies.model";
@@ -7,6 +7,8 @@ import Loading from "../utils/Loading";
 import Map from "../utils/Map";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { coordinateDTO } from "../utils/coordinates.module";
+import Ratings from "../utils/Ratings";
+import Swal from "sweetalert2";
 
 
 
@@ -59,6 +61,11 @@ export default function MovieDetails(){
         return `https://www.youtube.com/embed/${videoId}`;
     }
 
+    function handleRate(rate: number){
+        axios.post(urlRatings, {rating: rate, movieId: id}).then(() => 
+        Swal.fire({icon: "success", title: "Rating received"}));
+    }
+
 
 
 
@@ -70,11 +77,14 @@ export default function MovieDetails(){
                 <Link key={genre.id} 
                     style={{marginRight: "5px"}}
                     className="btn btn-primary btn-sm rounded-pill"
-                    to={`/movies/filter?genreId=${genre.id}`}
+                    //@ts-ignore
+                    to={`/movies/filter?genreId=${genre.id}&page=1`}
                 >
                     {genre.name}
                 </Link>
             )} | {movie.releaseDate.toDateString()}
+               | Your Vote : <Ratings maximumValue={5} selectedValue={0} 
+               onChange={handleRate} /> 
 
             <div style={{display: "flex", marginTop: "1rem"}}>
                 <span style={{display:"inline-block", marginRight: "1rem"}}>

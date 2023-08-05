@@ -5,9 +5,12 @@ export default function TextField(props: textFieldProps){
     return(
         <div className="mb-3">
                         <label htmlFor={props.field}>{props.field}</label>
-                        <Field name={props.field} id={props.field} className="form-control" autoComplete />
+                        <Field type={props.type}
+                            name={props.field} id={props.field} 
+                            className="form-control" autoComplete />
                         <ErrorMessage name={props.field}>{msg => 
-                        <div className="text-danger">{msg}</div>}</ErrorMessage>
+                            <div className="text-danger">{msg}</div>}
+                        </ErrorMessage>
                     </div>
     )
 }
@@ -16,4 +19,9 @@ export default function TextField(props: textFieldProps){
 interface textFieldProps{
     field: string;
     displayName: string;
+    type: "text" | "password";
+}
+
+TextField.defaultProps={
+    type: "text"
 }

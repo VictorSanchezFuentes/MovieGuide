@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using MoviesApi.DTO;
 
 namespace MoviesApi.Filters
 {
@@ -23,6 +25,23 @@ namespace MoviesApi.Filters
                 {
                     response.Add(badResquestObjectResult.Value.ToString());
                 }
+
+                else if (badResquestObjectResult.Value is IEnumerable<IdentityError> errors)
+                {
+                    foreach (var error in errors)
+                    {
+                        response.Add(error.Description);
+                    }
+                }
+
+                else if (badResquestObjectResult.Value is ErrorDTO)
+                {
+                        var errorDTO = (ErrorDTO)badResquestObjectResult.Value;
+                    
+                        response.Add(errorDTO.Description);
+                    
+                }
+
                 else
                 {
                     foreach (var key in context.ModelState.Keys)

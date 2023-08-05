@@ -1,13 +1,12 @@
 import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { moviePutGetDTO } from "../actors/actors.model";
 import { urlMovies } from "../endpoints";
 import DisplayErrors from "../utils/DisplayErrors";
 import { convertMovieToFormData } from "../utils/FormsDataUtils";
 import Loading from "../utils/Loading";
 import MovieForm from "./MovieForm";
-import { movieCreationDTO } from "./movies.model";
+import { movieCreationDTO, moviePutGetDTO } from "./movies.model";
 
 export default function EditMovie(){
     const {id}: any = useParams();
@@ -64,7 +63,7 @@ export default function EditMovie(){
             <h3>Edit Movie</h3>
             <DisplayErrors errors= {errors} />
             {movie && moviePutGet ? <MovieForm model={movie}
-            onSubmit={async values => await edit(values)}
+            onSubmit={async values => { console.log(values); await edit(values);}}
             nonSelectedGenres={moviePutGet.nonSelectedGenres}
             selectedGenres={moviePutGet.selectedGenres}
 
