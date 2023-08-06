@@ -37,7 +37,6 @@ export default function FilterMovies(){
     }, [])
 
     useEffect(() => {
-        console.log(query);
 
         if(query.get("title")){
             //@ts-ignore

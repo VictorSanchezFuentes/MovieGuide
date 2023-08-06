@@ -14,7 +14,7 @@ namespace MoviesApi.Controllers
 
     [Route("api/movies")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "IsAdmin")]
     public class MoviesController : ControllerBase
     {
         private readonly ApplicationDBContext context;
@@ -33,9 +33,8 @@ namespace MoviesApi.Controllers
             this.userManager = userManager;
         }
 
-
-        [HttpGet]
         [AllowAnonymous]
+        [HttpGet]
         public async Task<ActionResult<LandingPageDTO>> Get()
         {
             var top = 6;
@@ -70,8 +69,8 @@ namespace MoviesApi.Controllers
 
         }
 
-        [HttpGet("{id:int}")]
         [AllowAnonymous]
+        [HttpGet("{id:int}")]
         public async Task<ActionResult<MovieDTO>> Get(int id)
         {
             var movie = await context.Movies
@@ -94,9 +93,9 @@ namespace MoviesApi.Controllers
                 averageVote = await context.Ratings.Where(x => x.MovieId == id)
                     .AverageAsync(x => x.Rate);
 
-                if (HttpContext.User.Identity.IsAuthenticated)
+                if (HttpContext.User.Identity!.IsAuthenticated)
                 {
-                    var email = HttpContext.User.Claims.FirstOrDefault(x => x.Type == "email").Value;
+                    var email = HttpContext.User.Claims.FirstOrDefault(x => x.Type == "email")?.Value;
                     var user = await userManager.FindByEmailAsync(email);
                     var userId = user.Id;
 
@@ -131,7 +130,7 @@ namespace MoviesApi.Controllers
 
             var movie = movieActionResult.Value;
 
-            var genresSelectedIds = movie.Genres.Select(x => x.Id).ToList();
+            var genresSelectedIds = movie!.Genres.Select(x => x.Id).ToList();
             var nonSelectedGenres = await context.Genres.Where(x => !genresSelectedIds.Contains(x.Id))
                     .ToListAsync();
 
@@ -182,9 +181,9 @@ namespace MoviesApi.Controllers
 
 
 
-        
-        [HttpGet("filter")]
+
         [AllowAnonymous]
+        [HttpGet("filter")]
         public async Task<ActionResult<List<MovieDTO>>> Filter([FromQuery] FIlterMoviesDTO filterMoviesDTO)
         {
             var moviesQueryable = context.Movies.AsQueryable();

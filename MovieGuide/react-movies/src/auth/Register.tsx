@@ -21,15 +21,10 @@ export default function Register(){
                     .post<authenticationResponse>(`${urlAccounts}/create`, credentials)
                     .catch(function(error){
                         if(error.response){
-                            let objectErrors: ObjectError[] = error.response.data;
-                            
-                            console.log(objectErrors);
-
-
+                            let objectErrors: ObjectError[] = error.response.data
 
                             let arrayErrors: string[] = objectErrors.map(a => a.description);
                             // const arrayErrors: string[] = ["description"].map(k => error.response.data[k]);
-                            console.log(arrayErrors);
                             setErrors(arrayErrors);
                         }
                     

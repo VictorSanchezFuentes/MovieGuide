@@ -61,7 +61,6 @@ export default function Menu(){
 
                         <div className="d-flex">
                             <Authorized 
-                                // role="admin"
                                 authorized={<>
                                     <span className="nav-link">Hello, {getUserEmail()}</span>
                                     <Button className="nav-link btn btn-link"

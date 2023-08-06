@@ -1,19 +1,32 @@
+import axios from "axios";
 import { urlAccounts } from "../endpoints";
 import Button from "../utils/Button";
 import CustomConfirm from "../utils/CustomConfirm";
 import IndexEntity from "../utils/IndexEntity";
 import { userDTO } from "./auth.models";
+import Swal from "sweetalert2";
 
 export default function IndexUsers(){
 
     async function makeAdmin(id: string){
-
+        await doAdmin(`${urlAccounts}/makeAdmin`,id);
     }
 
     async function removeAdmin(id: string){
-
+        await doAdmin(`${urlAccounts}/removeAdmin`, id);
     }
 
+    async function doAdmin(url: string, id: string){
+        await axios.post(url, JSON.stringify(id), {
+            headers: {"Content-Type": "application/json"}
+        });
+
+        Swal.fire({
+            title:"Success",
+            text: "Operation finished correctly",
+            icon: "success"
+        });
+    }
 
 
 
@@ -36,7 +49,7 @@ export default function IndexUsers(){
                         <td>
                             <Button 
                                 onClick={() => CustomConfirm(() => makeAdmin(user.id),
-                                `Do you wish to make ${user.email} and admin?`, "Do it") }
+                                `Do you wish to make ${user.email} an admin?`, "Do it") }
                             >Make Admin</Button>
                             <Button 
                                 className="btn btn-danger ms-2"

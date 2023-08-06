@@ -24,10 +24,10 @@ namespace MoviesApi.Controllers
         }
 
         [HttpPost]
-        [Authorize(AuthenticationSchemes =JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult> Post([FromBody] RatingDTO ratingDTO)
         {
-            var email = HttpContext.User.Claims.FirstOrDefault(x => x.Type == "email").Value;
+            var email = HttpContext.User.Claims.FirstOrDefault(x => x.Type == "email")?.Value;
             var user = await userManager.FindByEmailAsync(email);
             var userId = user.Id;
 

@@ -50,7 +50,6 @@ namespace MoviesApi.Controllers
 
         [HttpPost("makeAdmin")]
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = "IsAdmin")]
-
         public async Task<ActionResult> MakeAdmin([FromBody] string userId)
         {
 
@@ -88,7 +87,7 @@ namespace MoviesApi.Controllers
 
             if(result.Succeeded)
             {
-                return BuildToken(userCredentials);
+                return await BuildToken(userCredentials);
 
             } 
             else
@@ -110,7 +109,7 @@ namespace MoviesApi.Controllers
 
             if(result.Succeeded)
             {
-                return BuildToken(userCredentials);
+                return await BuildToken(userCredentials);
 
             }
             else
@@ -131,12 +130,21 @@ namespace MoviesApi.Controllers
             }
         }
 
-        private AuthenticationResponse BuildToken(UserCredentials userCredentials)
+        private async Task<AuthenticationResponse> BuildToken(UserCredentials userCredentials)
         {
             var claims = new List<Claim>()
             {
-                new Claim("email", userCredentials.Email)
+                new Claim("email", userCredentials.Email!)
             };
+
+            var user = await userManager.FindByEmailAsync(userCredentials.Email);
+
+            var roleClaim = await userManager.GetClaimsAsync(user);
+            
+            if (roleClaim.Count>0)
+            {
+                claims.AddRange(roleClaim);
+            }
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["keyjwt"]!));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -151,6 +159,16 @@ namespace MoviesApi.Controllers
                 Token = new JwtSecurityTokenHandler().WriteToken(token),
                 Expiration = expiration
             };
+        }
+
+
+        private void AddRolesToClaims(List<Claim> claims, IEnumerable<string> roles)
+        {
+            foreach (var role in roles)
+            {
+                var roleClaim = new Claim(ClaimTypes.Role, role);
+                claims.Add(roleClaim);
+            }
         }
 
     }

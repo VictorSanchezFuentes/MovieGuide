@@ -5,7 +5,7 @@ namespace MoviesApi.Validations
 {
     public class FirstLetterUppercaseAttribute: ValidationAttribute
     {
-        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        protected override ValidationResult IsValid(object? value, ValidationContext validationContext)
         {
             //we override the validation method
             //two parameter: value brings us the value of the 
@@ -27,10 +27,10 @@ namespace MoviesApi.Validations
             
             if(value == null || string.IsNullOrEmpty(value.ToString()))
             {
-                return ValidationResult.Success;
+                return ValidationResult.Success!;
             }
 
-            var firstLetter = value.ToString()[0].ToString();
+            var firstLetter = value.ToString()![0].ToString();
             
             if(firstLetter!=firstLetter.ToUpper())
             {
@@ -38,7 +38,7 @@ namespace MoviesApi.Validations
             }
 
 
-            return ValidationResult.Success;
+            return ValidationResult.Success!;
             //return base.IsValid(value, validationContext);
         }
     }

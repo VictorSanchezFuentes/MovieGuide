@@ -28,11 +28,14 @@ export function getClaims(): claim[]{
     for(const property  in dataToken){
         response.push({name: property, value: dataToken[property]});
     }
-    console.log(response);
     return response;
 }
 
 export function logout(){
     localStorage.removeItem(tokenKey);
     localStorage.removeItem(expirationKey);
+}
+
+export function getToken(){
+    return localStorage.getItem(tokenKey);
 }

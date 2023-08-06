@@ -31,13 +31,16 @@ builder.Services.AddControllers(options =>
 var configuration = builder.Configuration;
 builder.Services.AddEndpointsApiExplorer();
 
+
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
 builder.Services.AddCors(options =>
 {
     
     var frontendURL = configuration.GetValue<string>("frontend_url");
     options.AddDefaultPolicy(builder =>
     {
-        builder.WithOrigins(frontendURL).AllowAnyMethod().AllowAnyHeader()
+        builder.WithOrigins(frontendURL!).AllowAnyMethod().AllowAnyHeader()
         .WithExposedHeaders(new string[] { "totalAmountOfRecords" });
     });
 });
@@ -65,26 +68,28 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>()
        .AddDefaultTokenProviders();
 
 
-JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
 
 builder.Services.
-    AddAuthentication(JwtBearerDefaults.AuthenticationScheme).
-    AddJwtBearer(options =>
+    AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
     {
         options.TokenValidationParameters = new TokenValidationParameters
         {
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["keyjwt"])),
             ValidateIssuer = false,
             ValidateAudience = false,
             ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(builder.Configuration["keyjwt]"])),
             ClockSkew = TimeSpan.Zero
         };
     });
 
-
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("IsAdmin", policy => policy
+        .RequireClaim("role", "admin"));
+});
 
 
 
@@ -99,7 +104,7 @@ builder.Logging.AddConsole();
 var configurationString = configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
-    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), 
+    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")!, 
     options => options.UseNetTopologySuite()));
 
 

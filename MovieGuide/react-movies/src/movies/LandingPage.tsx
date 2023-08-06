@@ -28,12 +28,6 @@ export default function LandingPage(){
             loadData();
         }}>
 
-            {/* <Authorized 
-                authorized={<>Your are authorized</>}
-                notAuthorized={<>You are not authorized</>}
-                role="admin"
-            /> */}
-
             <h3>In theaters</h3>
                 <MoviesList movies={movies.inTheaters} />
 

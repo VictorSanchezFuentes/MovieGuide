@@ -9,22 +9,19 @@ import AuthenticationContext from './auth/AuthenticationContext';
 import { ReactElement } from 'react-markdown/lib/react-markdown';
 import LandingPage from './movies/LandingPage';
 import { getClaims } from './auth/HandleJWT';
+import configureInterceptor from './utils/httpInterceptors';
 
 configureValidations();
+configureInterceptor();
 
 
 function App() {
 
-  const [claims, setClaims] = useState<claim[]>([
-  //   {name: "email", value: "victor@hotmail.com"},
-  //   {name: "role", value: "admin"}
-
-  ]);
+  const [claims, setClaims] = useState<claim[]>([]);
 
 
   useEffect(() => {
     setClaims(getClaims());
-    console.log(claims);
   }, [])
 
 
@@ -35,22 +32,6 @@ function isAdmin() {
     && claims.value === "admin") > -1;
   
   }
-
-
-  // function PrivateRoute(adminCheck: any): ReactElement {
-    
-  //   console.log(adminCheck);
-  //   console.log(!isAdmin());
-    
-  //   const auth = (!isAdmin() && adminCheck); // determine if authorized, from context or however you're doing it
-  
-  //   console.log(auth);
-
-  //     // If authorized, return an outlet that will render child elements
-  //     // If not, return element that will navigate to login page
-  //     return auth ? <>You are not allowed to see this page</> : <LandingPage />;
-  // }
-
 
 
   return (

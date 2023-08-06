@@ -8,6 +8,7 @@ export default function Ratings(props: ratingsProp){
     
     const [maximumValueArr,setMaximumValueArr] = useState<number[]>([]);
     const [selectedValue, setSelectedValue] = useState(props.selectedValue);
+    const [savedValue, setSavedValue] = useState(props.selectedValue);
     const {claims} = useContext(AuthenticationContext);
 
     useEffect(() =>{
@@ -18,14 +19,20 @@ export default function Ratings(props: ratingsProp){
     function handleMouseOver(rate: number){
         setSelectedValue(rate);
     }
+
+    function handleMouseLeft(rate: number){
+        setSelectedValue(savedValue);
+    }
     
     function handleClick(rate: number){
         const userIsLoggedIn = claims.length > 0;
         if(!userIsLoggedIn){
             Swal.fire({title: "ERROR", text: "You need to log in" , icon: "error"});
+            return;
         }
 
         setSelectedValue(rate);
+        setSavedValue(rate);
         props.onChange(rate);
     }
 
@@ -34,6 +41,7 @@ export default function Ratings(props: ratingsProp){
         <>
             {maximumValueArr.map((_,index) => <FontAwesomeIcon 
                 onMouseOver={() => handleMouseOver(index+1)}
+                onMouseLeave={() => handleMouseLeft(selectedValue)}
                 onClick={() => handleClick(index+1)}
                 icon="star" key={index} 
                 className={`fa-lg pointer ${selectedValue >= index+1 ? "checked" : null}`}
@@ -47,5 +55,4 @@ interface ratingsProp {
     maximumValue: number;
     selectedValue: number;
     onChange(vote: number): void;
-
 }
